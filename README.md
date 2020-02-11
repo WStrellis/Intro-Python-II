@@ -41,9 +41,9 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
 * Put the Room class in `room.py` based on what you see in `adv.py`.
 
-  * The room should have `name` and `description` attributes.
+    [x]  The room should have `name` and `description` attributes.
 
-  * The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
+   [x] The room should also have `n_to`, `s_to`, `e_to`, and `w_to` attributes
     which point to the room in that respective direction.
 
 * Put the Player class in `player.py`.
