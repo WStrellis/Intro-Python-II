@@ -22,13 +22,13 @@ rooms['treasure'].s_to = rooms['narrow']
 # Create items
 sword = Item('Sword', 'A sharp steel sword used to stab things.')
 # add items to rooms
-rooms['outside'].add_item(sword)
-print(rooms['outside'].items[0].name)
-print(rooms['foyer'].items[0].name)
-for v in rooms.values():
-    print(v.name)
-    for i in v.items:
-        print(i.name)
+# rooms['outside'].add_item(sword)
+# print(rooms['outside'].items[0].name)
+# print(rooms['foyer'].items[0].name)
+# for v in rooms.values():
+# print(v.name)
+# for i in v.items:
+# print(i.name)
 
 #
 # Main
@@ -44,10 +44,8 @@ def main():
 
 
 def move_player(direction: str, player):
-
     # check if there is another room in the specified direction
     has_next_room = player.current_room.get_adjacent_room(direction)
-    print(has_next_room)
     if has_next_room:
         # if yes, move player to that room
         player.current_room = has_next_room
@@ -80,12 +78,14 @@ def play_game(p):
         action = input('\n~~~> ')
 
        # If the user enters a cardinal direction, attempt to move to the room there.
-        if type(action) == str and action.lower() in MOVE_DIRS:
+        if action.lower() in MOVE_DIRS:
             move_player(action, p)
         # If the user enters "q", quit the game.
         elif type(action) == str and action.lower() == 'q':
             print(f"\nGoodbye, {p.name}")
             is_running = False
+        else:
+            print('*** Invalid Command ***')
 
 
 if __name__ == '__main__':
