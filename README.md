@@ -35,9 +35,9 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
 
 * Add a REPL parser to `adv.py` that accepts directional commands to move the player
-  * After each move, the REPL should print the name and description of the player's current room
-  * Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
-  * The parser should print an error if the player tries to move where there is no room.
+  [x] After each move, the REPL should print the name and description of the player's current room
+  [x] Valid commands are `n`, `s`, `e` and `w` which move the player North, South, East or West
+  [x] The parser should print an error if the player tries to move where there is no room.
 
 * Put the Room class in `room.py` based on what you see in `adv.py`.
 
@@ -47,7 +47,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
     which point to the room in that respective direction.
 
 * Put the Player class in `player.py`.
-  * Players should have a `name` and `current_room` attributes
+  [x] Players should have a `name` and `current_room` attributes
 
 
 * Create a file called `item.py` and add an `Item` class in there.

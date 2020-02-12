@@ -10,6 +10,11 @@ testRoom = {
     'w_to': 'Cave Room 3',
 }
 
+basicRoom = {
+    'name': 'Forest',
+    'description': "A lush green forest",
+}
+
 
 def test_has_attributes():
     global testRoom
@@ -25,11 +30,15 @@ def test_has_attributes():
 def test_should_have_None_for_n_to():
     global testRoom
     t2 = testRoom.copy()
-    t2.update('n_to', None)
+    t2.update({'n_to': None})
     room = Room(**t2)
-    assert room.name == t2["name"]
-    assert room.description == t2["description"]
     assert room.n_to == None
-    assert room.s_to == t2["s_to"]
-    assert room.e_to == t2["e_to"]
-    assert room.w_to == t2["w_to"]
+
+
+def test_should_return_basicRoom():
+    global testRoom
+    t2 = testRoom.copy()
+    t2.update({'s_to': basicRoom})
+    room = Room(**t2)
+    assert room.s_to == basicRoom
+    assert room.get_adjacent_room('s') == basicRoom

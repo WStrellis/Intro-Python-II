@@ -1,4 +1,8 @@
-from .room import Room
+import importlib
+
+room = importlib.import_module('room')
+
+Room = room.Room
 
 rooms = {
     'outside':  Room("Outside Cave Entrance",
@@ -22,11 +26,11 @@ earlier adventurers. The only exit is to the south."""),
 
 # Link rooms together
 
-rooms['outside'].n_to = rooms['foyer']
-rooms['foyer'].s_to = rooms['outside']
-rooms['foyer'].n_to = rooms['overlook']
-rooms['foyer'].e_to = rooms['narrow']
-rooms['overlook'].s_to = rooms['foyer']
-rooms['narrow'].w_to = rooms['foyer']
-rooms['narrow'].n_to = rooms['treasure']
-rooms['treasure'].s_to = rooms['narrow']
+# rooms['outside'].n_to = rooms['foyer']
+# rooms['foyer'].s_to = rooms['outside']
+# rooms['foyer'].n_to = rooms['overlook']
+# rooms['foyer'].e_to = rooms['narrow']
+# rooms['overlook'].s_to = rooms['foyer']
+# rooms['narrow'].w_to = rooms['foyer']
+# rooms['narrow'].n_to = rooms['treasure']
+# rooms['treasure'].s_to = rooms['narrow']
