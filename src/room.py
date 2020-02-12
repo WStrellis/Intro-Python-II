@@ -26,7 +26,19 @@ class Room:
         self.e_to = e_to
         self.w_to = w_to
 
-    def get_adjacent_room(self, direction: str):
+    def get_n_to(self) -> str:
+        return self.n_to
+
+    def get_s_to(self) -> str:
+        return self.s_to
+
+    def get_e_to(self) -> str:
+        return self.e_to
+
+    def get_w_to(self) -> str:
+        return self.w_to
+
+    def get_adjacent_room(self, direction: str) -> str:
         """Returns the next room in the specified direction or None if there is not a room
 
         Arguments:
@@ -38,13 +50,6 @@ class Room:
             None
 
         """
-        if direction == 'n':
-            return self.n_to
-        elif direction == 's':
-            return self.s_to
-        elif direction == 'e':
-            return self.e_to
-        elif direction == 'w':
-            return self.w_to
-        else:
-            return None
+        adjacent = {'n': self.get_n_to(), 's': self.get_s_to(),
+                    'e': self.get_e_to(), 'w': self.get_w_to()}
+        return adjacent[direction]
