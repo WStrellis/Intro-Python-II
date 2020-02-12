@@ -22,13 +22,7 @@ rooms['treasure'].s_to = rooms['narrow']
 # Create items
 sword = Item('Sword', 'A sharp steel sword used to stab things.')
 # add items to rooms
-# rooms['outside'].add_item(sword)
-# print(rooms['outside'].items[0].name)
-# print(rooms['foyer'].items[0].name)
-# for v in rooms.values():
-# print(v.name)
-# for i in v.items:
-# print(i.name)
+rooms['outside'].add_item(sword)
 
 #
 # Main

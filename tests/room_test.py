@@ -6,7 +6,6 @@ from src.room_data import rooms
 testRoom = {
     'name': 'Cave Entrance',
     'description': "A dark and gloomy cave. An underground river runs down the center. Stalactites hang from the ceiling.",
-    'items': [],
     'n_to': 'Forest',
     's_to': 'Plains',
     'e_to': 'Cave Room 2',
@@ -26,7 +25,7 @@ def test_has_attributes():
     room = Room(**testRoom)
     assert room.name == testRoom["name"]
     assert room.description == testRoom["description"]
-    assert room.items == testRoom["items"]
+    assert room.items == []
     assert room.n_to == testRoom["n_to"]
     assert room.s_to == testRoom["s_to"]
     assert room.e_to == testRoom["e_to"]
