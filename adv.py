@@ -2,18 +2,12 @@
 import textwrap
 
 # app modules
-import room
-import player
-import room_data
+from src.player import Player
+from src.room_data import rooms
+from src.item import Item
 
 
 MOVE_DIRS = ['n', 's', 'e', 'w']
-
-Room = room.Room
-Player = player.Player
-rooms = room_data.rooms
-
-# Link rooms together
 
 rooms['outside'].n_to = rooms['foyer']
 rooms['foyer'].s_to = rooms['outside']
@@ -23,6 +17,18 @@ rooms['overlook'].s_to = rooms['foyer']
 rooms['narrow'].w_to = rooms['foyer']
 rooms['narrow'].n_to = rooms['treasure']
 rooms['treasure'].s_to = rooms['narrow']
+
+
+# Create items
+sword = Item('Sword', 'A sharp steel sword used to stab things.')
+# add items to rooms
+rooms['outside'].add_item(sword)
+print(rooms['outside'].items[0].name)
+print(rooms['foyer'].items[0].name)
+for v in rooms.values():
+    print(v.name)
+    for i in v.items:
+        print(i.name)
 
 #
 # Main
@@ -41,9 +47,11 @@ def move_player(direction: str, player):
 
     # check if there is another room in the specified direction
     has_next_room = player.current_room.get_adjacent_room(direction)
+    print(has_next_room)
     if has_next_room:
         # if yes, move player to that room
         player.current_room = has_next_room
+        print(f"\n{player.name} moves to {has_next_room.name}")
     # if no, print error message
     else:
         print(f"\n*** {player.name} cannot move in that direction. ***")
@@ -58,6 +66,10 @@ def show_current_location(p):
     for i in des:
         print(i)
 
+    print(f"""\nAvailable Items:\n""")
+    for i in p.current_room.items:
+        print(f"{i.name} - {i.description}")
+
 
 def play_game(p):
     is_running = True
@@ -65,7 +77,7 @@ def play_game(p):
     while is_running:
         show_current_location(p)
         # * Waits for user input and decides what to do.
-        action = input(f'\n{p.name} will go: ')
+        action = input('\n~~~> ')
 
        # If the user enters a cardinal direction, attempt to move to the room there.
         if type(action) == str and action.lower() in MOVE_DIRS:

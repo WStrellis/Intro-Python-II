@@ -52,9 +52,8 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
 * Create a file called `item.py` and add an `Item` class in there.
 
-  * The item should have `name` and `description` attributes.
+  [x] The item should have `name` and `description` attributes.
 
-     * Hint: the name should be one word for ease in parsing later.
 
   * This will be the _base class_ for specialized item types to be declared
     later.
