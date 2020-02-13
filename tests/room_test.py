@@ -50,11 +50,20 @@ def test_should_return_basicRoom():
 
 
 def test_add_item():
-    r1 = rooms['outside']
-    r2 = rooms['foyer']
+    sword = Item('Sword', 'A sharp sword')
+    r1 = Room('Armoury', "the castle armoury")
+    r2 = Room('Forest', "A haunted forest")
     assert len(r1.items) == 0
     assert len(r2.items) == 0
     r1.add_item(sword)
     assert len(r1.items) == 1
     assert r1.items[0] == sword
     assert len(r2.items) == 0
+
+
+def test_remove_item():
+    sword = Item('Sword', 'A sharp sword')
+    r1 = Room('Armoury', "the castle armoury", items=[sword])
+    assert len(r1.items) == 1
+    r1.remove_item(sword)
+    assert len(r1.items) == 0
