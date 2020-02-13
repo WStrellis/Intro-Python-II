@@ -40,15 +40,6 @@ def test_should_have_None_for_n_to():
     assert room.n_to == None
 
 
-def test_should_return_basicRoom():
-    global testRoom
-    t2 = testRoom.copy()
-    t2.update({'s_to': basicRoom})
-    room = Room(**t2)
-    assert room.s_to == basicRoom
-    assert room.get_adjacent_room('s') == basicRoom
-
-
 def test_add_item():
     sword = Item('Sword', 'A sharp sword')
     r1 = Room('Armoury', "the castle armoury")

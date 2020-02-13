@@ -40,7 +40,8 @@ def main():
 
 def move_player(direction: str, player):
     # check if there is another room in the specified direction
-    has_next_room = player.current_room.get_adjacent_room(direction)
+    has_next_room = getattr(player.current_room, f'{direction}_to', None)
+
     if has_next_room:
         # if yes, move player to that room
         player.current_room = has_next_room
@@ -71,6 +72,7 @@ def take_item(p, a):
     if room_item:
         p.current_room.remove_item(room_item)
         p.add_item(room_item)
+        print('\n' + room_item.on_take(p))
     # if no show err
     else:
         print(f"\nThere is not a {a[1]} in this room.")
@@ -83,6 +85,7 @@ def drop_item(p, a):
     if p_item:
         p.drop_item(p_item)
         p.current_room.add_item(p_item)
+        print('\n' + p_item.on_drop(p))
     # if no show err
     else:
         print(f"\n{p.name} is not carrying a {a[1]}.")
