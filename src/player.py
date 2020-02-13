@@ -12,5 +12,8 @@ class Player:
 
     def list_items(self) -> str:
         print(f"""\n*** {self.name}'s Inventory ***\n""")
-        for i in self.items:
-            print(f'{i.name} - {i.description}')
+        if len(self.items) == 0:
+            print('( Empty )')
+        else:
+            for i in self.items:
+                print(f'{i.name} - {i.description}')

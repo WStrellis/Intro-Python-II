@@ -31,31 +31,3 @@ class Room:
 
     def remove_item(self, item):
         self.items.remove(item)
-
-    def get_n_to(self) -> str:
-        return self.n_to
-
-    def get_s_to(self) -> str:
-        return self.s_to
-
-    def get_e_to(self) -> str:
-        return self.e_to
-
-    def get_w_to(self) -> str:
-        return self.w_to
-
-    def get_adjacent_room(self, direction: str) -> str:
-        """Returns the next room in the specified direction or None if there is not a room
-
-        Arguments:
-            direction {str} -- [description]
-
-        Returns:
-            Room -- An instance of class Room
-            or
-            None
-
-        """
-        adjacent = {'n': self.get_n_to(), 's': self.get_s_to(),
-                    'e': self.get_e_to(), 'w': self.get_w_to()}
-        return adjacent[direction]
